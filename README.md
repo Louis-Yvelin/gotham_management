@@ -1,13 +1,14 @@
 # Gotham management
+
 ## Architecture du projet
-Backend (phoenix)
-  /--backend
-Frontend (React)
-  /--frontend
-  /--/--web
-Mobile (?)
-  /--frontend
-  /--/--mobile
+```plaintext
+gotham-management/
+├── backend/ (Phoenix)
+├── frontend/ (React)
+│   ├── web/
+│   └── mobile/
+```
+
 ## Contributeurs
 * nom
 * nom

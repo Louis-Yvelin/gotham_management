@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  phx_postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: phx_app_db
+    ports:
+      - "5432:5432"
+
+  phx_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@phx_postgres:5432/phx_app_db
+      SECRET_KEY_BASE: NluxzBFqsy9h8XRjk2sQcTL3BE0n5T4zhG14DV2YttTB2uWkMLS7ZsFDVkd6WYfz
+    ports:
+      - "4000:4000"
+    depends_on:
+      - phx_postgres
